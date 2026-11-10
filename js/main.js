@@ -365,22 +365,15 @@ async function loadSkills() {
    3. Interfaz
    ========================================================================== */
 
-/* ---------- Datos para el mapa mental ---------- */
+/* ---------- Datos para el grafo ---------- */
 
 function shortCategoryLabel(title) {
   if (/blandas/i.test(title)) return "Blandas";
-  if (/aprendiendo/i.test(title)) return "Aprendiendo";
+  if (/aprendiendo/i.test(title)) return "En curso";
   if (/redes/i.test(title)) return "Redes";
   if (/fundamentos/i.test(title)) return "Fundamentos";
   if (/bases de datos/i.test(title)) return "Datos";
   return title.replace(/\s*\(.*\)\s*$/, "");
-}
-
-function shortSkillLabel(name) {
-  let label = name.split(":")[0].trim();
-  label = label.replace(/\s*\([^)]*\)/g, " ").replace(/\s+/g, " ").trim();
-  if (label.length > 22) label = `${label.slice(0, 21).trimEnd()}…`;
-  return label || name;
 }
 
 function collectSkillData(groups) {
@@ -400,6 +393,9 @@ function collectSkillData(groups) {
       skills: [],
     };
 
+    // La sección «Actualmente aprendiendo» equivale al nivel Aprendiendo.
+    const learning = /aprendiendo/i.test(title);
+
     group.querySelectorAll("table tbody tr").forEach((row) => {
       const cells = [...row.querySelectorAll("td")];
       if (!cells.length) return;
@@ -410,7 +406,6 @@ function collectSkillData(groups) {
 
       category.skills.push({
         name,
-        label: shortSkillLabel(name),
         level: levelMatch ? Number(levelMatch[1]) : 0,
         evidence: cells[2]?.textContent.trim() ?? "",
       });
@@ -426,7 +421,7 @@ function collectSkillData(groups) {
       const name = colon > 0 ? raw.slice(0, colon).trim() : raw;
       const evidence = colon > 0 ? raw.slice(colon + 1).trim() : "";
 
-      category.skills.push({ name, label: shortSkillLabel(name), level: 0, evidence });
+      category.skills.push({ name, level: learning ? 1 : 0, evidence });
     });
 
     if (category.skills.length) categories.push(category);
@@ -484,7 +479,10 @@ function setView(view, options = {}) {
 function initialView() {
   try {
     const saved = localStorage.getItem(VIEW_KEY);
-    if (saved === "map") return "graph";
+    if (saved === "map") {
+      localStorage.setItem(VIEW_KEY, "graph");
+      return "graph";
+    }
     if (saved === "graph" || saved === "list") return saved;
   } catch {
     /* ignora */

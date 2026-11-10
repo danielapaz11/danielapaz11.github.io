@@ -10,7 +10,7 @@
   const SVG_NS = "http://www.w3.org/2000/svg";
   const PALETTE = ["#5b3df5", "#0f766e", "#2563eb", "#7c3aed", "#b45309", "#be185d", "#0d9488"];
   const LEVEL_NAME = { 1: "Aprendiendo", 2: "Práctico", 3: "Cómodo" };
-  const RADIUS = { 0: 9, 1: 9, 2: 11, 3: 13 };
+  const RADIUS = { 0: 8, 1: 10, 2: 12, 3: 14 };
 
   // Relaciones reales entre habilidades: [origen, destino].
   const LINK_RULES = [
@@ -191,7 +191,7 @@
           vy: 0,
           fixed: false,
           ghost: false,
-          lastDragEnd: 0,
+          lastDragEnd: -1000,
         };
 
         const el = make("button", "graph-node");
@@ -738,6 +738,16 @@
     const visible = state.nodes.filter((node) => !node.ghost);
     if (!visible.includes(state.roving)) state.roving = visible[0] ?? null;
 
+    if (state.els.status) {
+      if (!query && !categoryFiltered) {
+        state.els.status.textContent = "";
+      } else if (!visible.length) {
+        state.els.status.textContent = "No hay habilidades que coincidan con los filtros.";
+      } else {
+        state.els.status.textContent = `${visible.length} de ${state.nodes.length} habilidades visibles.`;
+      }
+    }
+
     updateHighlight();
   }
 
@@ -806,7 +816,7 @@
     const tip = state.els.tip;
     if (!tip) return;
 
-    tip.textContent = node.skill.label;
+    tip.textContent = node.skill.name;
     tip.hidden = false;
     positionTip(node);
   }
@@ -849,6 +859,8 @@
     const detail = state.els.detail;
     if (!detail) return;
 
+    // Se muestra antes de insertar el contenido para que el lector de pantalla lo anuncie.
+    detail.hidden = false;
     detail.replaceChildren();
 
     const head = make("div", "graph-detail-head");
@@ -879,7 +891,6 @@
     }
 
     detail.append(head, body);
-    detail.hidden = false;
   }
 
   function hideDetail() {
@@ -1045,7 +1056,12 @@
         moved: false,
       };
 
-      canvas.setPointerCapture(event.pointerId);
+      try {
+        canvas.setPointerCapture(event.pointerId);
+      } catch {
+        /* sin captura: el paneo sigue funcionando dentro del lienzo */
+      }
+
       canvas.classList.add("is-panning");
       hideTip();
     });
@@ -1202,6 +1218,7 @@
       tip: document.getElementById("graph-tip"),
       legend: document.getElementById("graph-legend"),
       detail: document.getElementById("graph-detail"),
+      status: document.getElementById("graph-status"),
     };
     state.categories = categories ?? [];
     state.reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
