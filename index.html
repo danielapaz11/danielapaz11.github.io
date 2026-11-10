@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daniela Paz · Portafolio</title>
+  <meta name="description" content="Portafolio de Daniela Paz, ingeniera de sistemas enfocada en desarrollo web frontend.">
+  <meta name="theme-color" content="#f6f6fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f15" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    try {
+      const saved = localStorage.getItem("daniela-tema");
+      if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+    } catch (error) {
+      /* Si el almacenamiento está bloqueado, se usa el tema del sistema. */
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio">Daniela Paz</a>
+      <ul class="nav-list">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#formacion">Formación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Tema automático. Cambiar tema">
+        <span class="theme-icon" id="theme-icon" aria-hidden="true">◐</span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="aurora" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+      </div>
+
+      <p class="eyebrow">Ingeniera de Sistemas · Frontend</p>
+      <h1>Hola, soy <span class="accent">Daniela Paz</span></h1>
+
+      <p class="typed-line" aria-hidden="true">
+        <span class="typed-prefix">&gt;</span>
+        <span id="typed"></span><span class="caret"></span>
+      </p>
+      <p class="sr-only">Me enfoco en desarrollo web frontend, interfaces accesibles y aprendizaje continuo.</p>
+
+      <p class="lead">
+        Construyo interfaces web accesibles y responsivas, con la ventaja de entender
+        lo que ocurre en el backend, las bases de datos y la infraestructura.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn-ghost" href="https://github.com/danielapaz11" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+
+    <section class="section" id="sobre-mi" aria-labelledby="sobre-mi-title">
+      <h2 id="sobre-mi-title">Sobre mí</h2>
+      <div class="about-grid">
+        <div class="prose">
+          <p>
+            Soy ingeniera de sistemas y desarrolladora web junior. Me formé en
+            programación orientada a objetos, estructuras de datos, bases de datos y
+            redes, y hoy me enfoco en el frontend: HTML semántico, CSS y JavaScript.
+          </p>
+          <p>
+            Me interesa hacer sitios que se entiendan sin esfuerzo, que funcionen en
+            cualquier pantalla y que sean accesibles. Documento lo que aprendo y
+            prefiero mostrar evidencia real antes que porcentajes inventados.
+          </p>
+        </div>
+        <aside class="card highlight" aria-labelledby="dato-title">
+          <h3 id="dato-title">Lo que aporto</h3>
+          <ul class="check-list">
+            <li>Visión de sistema completo, del API a la interfaz.</li>
+            <li>Base sólida en lógica, datos y estructuras.</li>
+            <li>Curiosidad y aprendizaje continuo.</li>
+            <li>Comunicación clara y trabajo en equipo.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="habilidades" aria-label="Habilidades">
+      <div class="skills-box">
+        <div class="skills-toolbar">
+          <div class="field">
+            <label class="sr-only" for="skill-search">Buscar habilidad</label>
+            <input
+              type="search"
+              id="skill-search"
+              placeholder="Buscar: JavaScript, SQL, Git…"
+              autocomplete="off"
+              spellcheck="false"
+            >
+          </div>
+          <div class="chips" role="group" aria-label="Filtrar habilidades por categoría">
+            <button class="chip is-active" type="button" data-filter="todo" aria-pressed="true">Todo</button>
+            <button class="chip" type="button" data-filter="frontend" aria-pressed="false">Frontend</button>
+            <button class="chip" type="button" data-filter="fundamentos" aria-pressed="false">Fundamentos</button>
+            <button class="chip" type="button" data-filter="datos" aria-pressed="false">Datos</button>
+            <button class="chip" type="button" data-filter="redes" aria-pressed="false">Redes</button>
+            <button class="chip" type="button" data-filter="herramientas" aria-pressed="false">Herramientas</button>
+            <button class="chip" type="button" data-filter="otros" aria-pressed="false">Otros</button>
+          </div>
+          <button class="chip chip-clear" id="clear-filters" type="button" hidden>Limpiar</button>
+          <div class="view-switch" role="group" aria-label="Vista de habilidades">
+            <button type="button" class="view-btn is-active" data-view="graph" aria-pressed="true">Grafo</button>
+            <button type="button" class="view-btn" data-view="list" aria-pressed="false">Lista</button>
+          </div>
+        </div>
+
+        <div id="skills-content" class="prose" aria-busy="true" hidden>
+          <p class="status">Cargando habilidades…</p>
+        </div>
+
+        <div class="skills-graph" id="skills-graph" role="group" aria-label="Grafo interactivo de habilidades" aria-describedby="graph-help">
+          <div class="graph-canvas" id="graph-canvas">
+            <div class="graph-world" id="graph-world">
+              <svg class="graph-links" aria-hidden="true" focusable="false"><g id="graph-links"></g></svg>
+              <div class="graph-nodes" id="graph-nodes"></div>
+            </div>
+            <p class="graph-tip" id="graph-tip" aria-hidden="true" hidden></p>
+            <div class="graph-controls">
+              <button class="graph-btn" id="graph-zoom-in" type="button" aria-label="Acercar el grafo">+</button>
+              <button class="graph-btn" id="graph-zoom-out" type="button" aria-label="Alejar el grafo">−</button>
+              <button class="graph-btn" id="graph-fit" type="button" aria-label="Centrar el grafo">⌖</button>
+              <button class="graph-btn" id="graph-shuffle" type="button" aria-label="Reorganizar el grafo">↻</button>
+            </div>
+            <p class="graph-hint" aria-hidden="true">Pasa el cursor · arrastra para mover</p>
+            <div class="graph-detail" id="graph-detail" aria-live="polite" hidden></div>
+          </div>
+          <ul class="graph-legend" id="graph-legend" aria-label="Categorías"></ul>
+          <p class="sr-only" id="graph-help">Grafo de habilidades. Usa Tab para entrar, las flechas para moverte entre habilidades conectadas, Enter para abrir el detalle y Escape para cerrarlo. También puedes arrastrar los nodos con el ratón.</p>
+        </div>
+
+        <p class="no-results" id="no-results" role="status" hidden>
+          No hay habilidades que coincidan. Prueba con otra palabra o pulsa «Limpiar».
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos" aria-labelledby="proyectos-title">
+      <h2 id="proyectos-title">Proyectos</h2>
+      <p class="section-lead">
+        Aquí irán mis trabajos reales. Dejo la estructura lista para ir añadiéndolos
+        con enlace al repositorio y a la demo.
+      </p>
+      <div class="cards">
+        <article class="card project">
+          <p class="tag">Próximamente</p>
+          <h3>Portafolio personal</h3>
+          <p>Este sitio: HTML semántico, CSS responsive y JavaScript sin dependencias.</p>
+          <p class="project-links"><a href="https://github.com/danielapaz11" target="_blank" rel="noopener noreferrer">Repositorio</a></p>
+        </article>
+        <article class="card project">
+          <p class="tag">Próximamente</p>
+          <h3>⟨Nombre del proyecto⟩</h3>
+          <p>⟨Una línea: qué problema resolvía y con qué tecnología.⟩</p>
+          <p class="project-links"><a href="#">Repositorio</a> · <a href="#">Demo</a></p>
+        </article>
+        <article class="card project">
+          <p class="tag">Próximamente</p>
+          <h3>⟨Proyecto de clase⟩</h3>
+          <p>⟨Una línea: materias, lenguaje y tu aporte concreto.⟩</p>
+          <p class="project-links"><a href="#">Repositorio</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contacto" aria-labelledby="contacto-title">
+      <h2 id="contacto-title">Contacto</h2>
+      <p class="section-lead">
+        ¿Tienes una oportunidad junior o una pregunta? Escríbeme.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:⟨tu-correo@ejemplo.com⟩">Enviar correo</a>
+        <a class="btn btn-ghost" href="https://github.com/danielapaz11" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn btn-ghost" href="#">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <button class="to-top" id="to-top" type="button" aria-label="Volver arriba">↑</button>
+
+  <footer class="site-footer">
+    <p>© <span id="year">2026</span> Daniela Paz · Contenido de habilidades en <code>skills.md</code></p>
+  </footer>
+
+  <script src="js/skills-graph.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
