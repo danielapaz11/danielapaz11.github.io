@@ -1,95 +1,86 @@
----
-titulo: Habilidades
-subtitulo: Ingeniera de Sistemas · Desarrollo web frontend
-actualizado: 2026-11-10
----
+# Portfolio — Plantilla de contenido
 
-# Habilidades
+> Rellena los campos entre corchetes `[...]` y borra esta nota al terminar.
+> Consejo: escribe corto y claro; los reclutadores dedican pocos segundos a cada sección.
 
-> Ingeniera de Sistemas enfocada en desarrollo web frontend. Mi formación me da algo
-> que no todos los perfiles junior tienen: entiendo el backend, las bases de datos y
-> la infraestructura, así que puedo construir interfaces que encajan con el sistema
-> completo. Prefiero mostrar **evidencia** antes que porcentajes.
+## 1. Datos básicos
 
-## Cómo leer los niveles
+- Nombre: [Laura Daniela Paz Silva]
+- Titular: [p. ej. "Ingeniera de sistemas"]
+- Foto (opcional): [ruta, p. ej. assets/perfil.jpg]
+- Ubicación: [ciudad, país]
 
-| Nivel | Significado |
-|---|---|
-| 🟢 **Cómodo** | Lo he usado en un proyecto real o en varias materias, sin ayuda constante. |
-| 🟡 **Práctico** | He hecho ejercicios y proyectos pequeños; consulto documentación. |
-| 🔵 **Aprendiendo** | En cursos o primeros pasos; todavía necesito guía. |
+## 2. Hero (primera pantalla)
 
-## Frontend (mi especialidad)
+Lo primero que se ve. Una frase de quién eres y qué haces.
 
-| Tecnología | Nivel | Evidencia |
-|---|---|---|
-| HTML5 semántico | 🟢 Cómodo | [Este portafolio](index.html) |
-| CSS3 (Flexbox, Grid, responsive) | 🟡 Práctico | Maquetación responsive de este sitio |
-| JavaScript (ES6+, DOM, `fetch`) | 🟡 Práctico | Manipulación del DOM en ⟨proyecto⟩ |
-| Diseño responsive / accesibilidad básica | 🔵 Aprendiendo | Prácticas en este sitio |
-| Consumo de APIs REST | 🔵 Aprendiendo | ⟨proyecto o curso⟩ |
+- Titular: "Hola, soy [Daniela Paz]"
+- Subtítulo: "[qué haces] que busca [su primera oportunidad / prácticas / ...]"
+- Botón principal: "Ver proyectos" → ancla a #proyectos
+- Botón secundario (opcional): "Descargar CV" → [enlace al PDF]
 
-## Fundamentos de ingeniería (lo que me diferencia)
+Ejemplo: "Hola, soy Ana. Construyo webs accesibles con HTML, CSS y JS, y busco mi primera oportunidad como frontend junior."
 
-| Área | Nivel | Evidencia |
-|---|---|---|
-| Java (POO) | 🟡 Práctico | Proyectos de ⟨materia⟩ |
-| Python | 🟡 Práctico | Ejercicios y scripts de ⟨materia⟩ |
-| C# | 🟡 Práctico | ⟨materia o proyecto⟩ |
-| C / C++ | 🟡 Práctico | Programación estructurada y estructuras de datos |
-| Estructuras de datos y algoritmos | 🟡 Práctico | Ejercicios y proyectos de la carrera |
+## 3. Sobre mí
 
-## Bases de datos
+2–4 frases en primera persona: quién eres, qué te gusta, qué buscas.
 
-| Tecnología | Nivel | Evidencia |
-|---|---|---|
-| SQL (⟨MySQL / PostgreSQL / SQL Server⟩) | 🟡 Práctico | Modelado y consultas en ⟨materia⟩ |
-| Modelado entidad-relación | 🟡 Práctico | Diseño de BD de un proyecto de clase |
-| MongoDB / NoSQL | 🔵 Aprendiendo | ⟨curso o práctica⟩ |
+- [Frase 1: quién eres y qué estudias o haces]
+- [Frase 2: qué tecnologías te gustan o tu especialización]
+- [Frase 3: algo personal —un hobby, un dato— que te haga memorable]
 
-## Redes, sistemas y análisis
+## 4. Proyectos (la sección más importante)
 
-| Área | Nivel | Evidencia |
-|---|---|---|
-| Redes (TCP/IP, subredes) | 🟡 Práctico | Laboratorios de ⟨materia⟩ |
-| Linux básico | 🔵 Aprendiendo | ⟨práctica o curso⟩ |
-| Análisis y diseño de software (UML) | 🟡 Práctico | Documentación de ⟨proyecto⟩ |
-| Metodologías ágiles | 🔵 Aprendiendo | Trabajo en equipo de la carrera |
+3–6 proyectos reales: personales, de práctica o de formación.
+Ficha de cada proyecto:
 
-## Herramientas
+- Nombre: [Daniela Paz]
+- Descripción: 1–2 frases del problema que resuelve
+- Tecnologías: [HTML, CSS, JS, ...]
+- Demo: [URL de GitHub Pages del proyecto]
+- Código: [URL del repositorio]
+- Captura: [ruta, p. ej. assets/proyecto-1.png]
+- Destacado: sí/no (máximo 2–3)
 
-| Herramienta | Nivel | Uso |
-|---|---|---|
-| Git y GitHub | 🟡 Práctico | Ramas, commits descriptivos, Pull Requests |
-| VS Code | 🟢 Cómodo | Editor principal |
-| GitHub Pages | 🟡 Práctico | Publicación de este sitio |
-| Postman / Thunder Client | 🔵 Aprendiendo | Pruebas de endpoints |
-| Figma | 🔵 Aprendiendo | Bocetos de interfaz |
+### Proyecto 1
+[...]
 
-## Formación
+### Proyecto 2
+[...]
 
-| Año | Título | Institución |
-|---|---|---|
-| ⟨año de grado⟩ | Ingeniera de Sistemas | ⟨Universidad⟩ |
+### Proyecto 3
+[...]
 
-## Habilidades blandas
+> Mejor 3 proyectos acabados y documentados que 10 a medias.
 
-- **Trabajo en equipo:** proyectos de carrera con reparto de tareas y feedback escrito.
-- **Comunicación:** explicar decisiones técnicas y documentar lo que hago.
-- **Aprendizaje continuo:** cursos en paralelo, notas breves de lo aprendido.
-- **Resolución de problemas:** dividir el problema, leer el error, ir a la documentación.
-- **Visión de sistema completo:** al ser frontend, entiendo qué pasa del otro lado del API.
+## 5. Habilidades
 
-## Actualmente aprendiendo
+Solo lo que hayas usado de verdad, agrupado:
 
-- [ ] Testing (Jest / Vitest)
-- [ ] TypeScript
-- [ ] Accesibilidad (WCAG básico)
-- [ ] Despliegue con GitHub Actions
-- [ ] ⟨lo que estés estudiando ahora⟩
+- Lenguajes: [HTML, CSS, JavaScript, ...]
+- Herramientas: [Git, GitHub, VS Code, Figma, ...]
+- Blandas: [trabajo en equipo, comunicación, ...]
+- En aprendizaje: [React, TypeScript, ...]
 
-## Contacto
+## 6. Formación y experiencia
 
-- GitHub: [@danielapaz11](https://github.com/danielapaz11)
-- Email: ⟨tu correo⟩
-- LinkedIn: ⟨tu perfil⟩
+Para juniors: formación, cursos y prácticas cuentan como experiencia.
+
+- [Título / ciclo / curso] — [centro] — [años]
+- [Certificación relevante] — [plataforma] — [año]
+- [Prácticas o trabajo] — [empresa] — [fechas + 1 frase de qué hiciste]
+
+## 7. Contacto
+
+- Email: [tu.email@ejemplo.com]
+- GitHub: github.com/danielapaz11
+- LinkedIn: [linkedin.com/in/danielapaz11]
+- Otros (opcional): [blog, itch.io, ...]
+
+## 8. Checklist antes de publicar
+
+- [ ] Sin campos vacíos entre corchetes
+- [ ] Ortografía revisada
+- [ ] Todos los enlaces funcionan
+- [ ] Visto en móvil y en ordenador
+- [ ] GitHub Pages activado (Settings → Pages → rama main)
